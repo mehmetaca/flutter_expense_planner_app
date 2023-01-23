@@ -121,7 +121,7 @@ class TransactionManager
       listTransaction.add(Transaction(
         title: getRandomShoppintItem(),
         date: DateTime.now().add(Duration(days: i)),
-        amount: Random().nextDouble()*1000,
+        amount: Random().nextDouble()*10,
         id: getRandomId(),
       )
       );
