@@ -19,7 +19,16 @@ class BarChart extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Text(value,style: TextStyle(fontSize: 14.0),),
+        Container(
+          width: 40.0,
+          child: FittedBox(
+              child: Text(
+            value,
+            style: TextStyle(
+              fontSize: 14.0,
+            ),
+          )),
+        ),
         Container(
           width: 40,
           height: 100,
@@ -28,8 +37,8 @@ class BarChart extends StatelessWidget {
             alignment: Alignment.bottomLeft,
             children: [
               Container(
-                decoration:  BoxDecoration(
-                  color: Color.fromRGBO(192, 198, 207,1),
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(192, 198, 207, 1),
                   borderRadius: BorderRadius.circular(5),
                 ),
               ),
@@ -51,7 +60,10 @@ class BarChart extends StatelessWidget {
             ],
           ),
         ),
-        Text(title, style: TextStyle(fontSize: 13.0),),
+        Text(
+          title,
+          style: TextStyle(fontSize: 13.0),
+        ),
       ],
     );
   }

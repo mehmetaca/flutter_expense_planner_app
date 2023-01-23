@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_expense_planner_app/models/transaction_manager.dart';
 import '../models/transaction.dart';
 
 import '../utils/utils.dart';
@@ -22,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
 
     // for testing with random items uncomment the below line if it is in comment
-    listTransaction = getRandomListTransaction();
+    listTransaction = TransactionManager().getRandomListTransaction();
   }
 
 

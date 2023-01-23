@@ -1,9 +1,11 @@
-
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_expense_planner_app/models/transaction.dart';
+import '../utils/utils.dart';
 
 class TransactionManager
 {
+
   Map<int, Map<String, dynamic>> getWeekSummarize(List<Transaction> listTransaction) {
     Map<int, Map<String, dynamic>> mapWeek = {
       1: {
@@ -80,5 +82,54 @@ class TransactionManager
 
     return mapWeek;
   }
+
+  String getRandomShoppintItem() {
+
+    final shoppingItems = [
+      'Skinless white meat',
+      'Lean cuts of red meat',
+      'Pasta',
+      'Rice',
+      'Bread',
+      'Salt',
+      'Pepper',
+      'Basil',
+      'Oregano',
+      'Coriander',
+      'Milk',
+      'Eggs',
+      'Cheese',
+      'Yogurt',
+      'Cooking oil',
+      'Butter'
+    ];
+
+    int randomIndex =  Random().nextInt(shoppingItems.length-1);
+
+    String selected = shoppingItems[randomIndex];
+
+    return selected;
+  }
+
+
+  List<Transaction> getRandomListTransaction()
+  {
+    List<Transaction> listTransaction = [];
+
+    for(int i = 0; i<15; i++)
+    {
+      listTransaction.add(Transaction(
+        title: getRandomShoppintItem(),
+        date: DateTime.now().add(Duration(days: i)),
+        amount: Random().nextDouble()*1000,
+        id: getRandomId(),
+      )
+      );
+    }
+
+
+    return listTransaction;
+  }
+
 
 }

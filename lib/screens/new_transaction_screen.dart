@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import '../utils/utils.dart';
 
 class NewTransactionScreen extends StatefulWidget {
-
   final Function funcAddNewTaskWithParams;
 
-  const NewTransactionScreen({Key? key, required this.funcAddNewTaskWithParams}) : super(key: key);
+  const NewTransactionScreen({Key? key, required this.funcAddNewTaskWithParams})
+      : super(key: key);
 
   @override
   State<NewTransactionScreen> createState() => _NewTransactionScreenState();
@@ -35,14 +35,15 @@ class _NewTransactionScreenState extends State<NewTransactionScreen> {
     }
   }
 
-  void addNewTransaction(BuildContext ctx)
-  {
-    if(tecAmount.text.isEmpty || tecTitle.text.isEmpty || selectedDate == null)
-      {
-        return;
-      }
+  void addNewTransaction(BuildContext ctx) {
+    if (tecAmount.text.isEmpty ||
+        tecTitle.text.isEmpty ||
+        selectedDate == null) {
+      return;
+    }
 
-   widget.funcAddNewTaskWithParams(tecTitle.text , double.parse(tecAmount.text), selectedDate!);
+    widget.funcAddNewTaskWithParams(
+        tecTitle.text, double.parse(tecAmount.text), selectedDate!);
 
     Navigator.pop(ctx);
   }
@@ -55,30 +56,42 @@ class _NewTransactionScreenState extends State<NewTransactionScreen> {
       height: 500,
       color: Colors.white,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           TextField(
             decoration: const InputDecoration(labelText: 'Title'),
             controller: tecTitle,
             keyboardType: TextInputType.text,
           ),
-          TextField(decoration: const InputDecoration(labelText: 'Amount'),
+          TextField(
+              decoration: const InputDecoration(labelText: 'Amount'),
               controller: tecAmount,
               keyboardType: TextInputType.number),
+          Container(
+            margin: EdgeInsets.only(top: 10),
+              child: Text(
+            'Date',
+            style: Theme.of(context).textTheme.bodyText2,
+          )),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(selectedDate != null
                   ? getFormattedDate(selectedDate!)
-                  : 'No date selected'),
-              MaterialButton(
-                  child: const Text('Select Date'),
+                  : ''),
+              IconButton(
+                icon: const Icon(Icons.calendar_month),
                   onPressed: () {
                     openDatePicker(context);
-                  }),
+                  }, ),
             ],
           ),
+
+          Divider(height: 5, thickness: 1, color:Colors.grey),
           ElevatedButton(
               child: const Text('Save'),
-              onPressed: (){
+              onPressed: () {
                 addNewTransaction(context);
               })
         ],

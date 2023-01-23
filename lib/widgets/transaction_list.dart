@@ -26,7 +26,7 @@ class TransactionList extends StatelessWidget {
             elevation: 1,
             margin: const EdgeInsets.all(10),
             child: ListTile(
-                leading: Text('\$${listTransaction[index].amount.toStringAsPrecision(2)}'),
+                leading: Text('\$${listTransaction[index].amount.toStringAsFixed(1)}'),
                 title: Text(
                   listTransaction[index].title,
                   style: Theme.of(context).textTheme.bodyText1,

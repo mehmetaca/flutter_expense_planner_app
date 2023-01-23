@@ -18,7 +18,7 @@ class HeaderBar extends StatelessWidget {
     for (var mapDay in mapWeek.values) {
       
       double expenseAmount = mapDay['expenseAmount']!;
-      String expenseAmountValue = '\$${expenseAmount.toStringAsPrecision(2)}';
+      String expenseAmountValue = '\$${expenseAmount.toStringAsFixed(1)}';
       
       Widget dayBarWidget = BarChart(
           title: mapDay['shortDayName'],
