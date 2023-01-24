@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class BarChart extends StatelessWidget {
+class Bar extends StatelessWidget {
   final String title;
   final String value;
   final double fillPercantage;
   final Color fillColor;
 
-  const BarChart({
+  const Bar({
     Key? key,
     required this.title,
     required this.value,
@@ -25,7 +25,7 @@ class BarChart extends StatelessWidget {
               child: Text(
             value,
             style: TextStyle(
-              fontSize: 14.0,
+              fontSize: 12.0,
             ),
           )),
         ),

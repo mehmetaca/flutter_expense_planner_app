@@ -62,11 +62,14 @@ class _NewTransactionScreenState extends State<NewTransactionScreen> {
             decoration: const InputDecoration(labelText: 'Title'),
             controller: tecTitle,
             keyboardType: TextInputType.text,
+            onSubmitted: (_) => addNewTransaction(context),
           ),
           TextField(
               decoration: const InputDecoration(labelText: 'Amount'),
               controller: tecAmount,
-              keyboardType: TextInputType.number),
+              keyboardType: const TextInputType.numberWithOptions(decimal: true),
+              onSubmitted: (_) => addNewTransaction(context),
+          ),
           Container(
             margin: EdgeInsets.only(top: 10),
               child: Text(

@@ -4,7 +4,7 @@ import 'package:flutter_expense_planner_app/models/transaction_manager.dart';
 import '../models/transaction.dart';
 
 import '../utils/utils.dart';
-import '../widgets/header_bar.dart';
+import '../widgets/chart_bar.dart';
 import '../widgets/transaction_list.dart';
 import 'new_transaction_screen.dart';
 
@@ -67,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Expense Planner'),
+        title:  Text('Expense Planner', ),
         actions: [
           IconButton(
               onPressed: () {
@@ -82,11 +82,12 @@ class _HomeScreenState extends State<HomeScreen> {
         },
         child: const Icon(Icons.add),
       ),
+     // floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-        HeaderBar(listTransaction: listTransaction,),
+        ChartBar(listTransaction: listTransaction,),
           Expanded(
             child: TransactionList(listTransaction: listTransaction, funcDeleteTask: deleteTask, ),
           ),

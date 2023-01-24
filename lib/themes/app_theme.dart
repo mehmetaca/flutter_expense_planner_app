@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 final ThemeData myLightTheme = _myLightTheme();
 
-const Color primaryColor =  Color.fromARGB(255, 13, 30, 54);
+const Color primaryColor = Color.fromARGB(255, 13, 30, 54);
 
 ThemeData _myLightTheme() {
   final ThemeData base = ThemeData.light();
@@ -14,39 +14,48 @@ ThemeData _myLightTheme() {
       //secondary: const Color.fromARGB(255, 223, 27, 12),
       //onSecondary: Colors.white,
       error: Colors.red,
-      background:  Colors.white,
+      background: Colors.white,
       //onBackground: Colors.black,
     ),
-
+    appBarTheme: _myLightAppBarTheme(base.appBarTheme),
     textTheme: _myLightTextTheme(base.textTheme),
     elevatedButtonTheme: _elevatedButtonTheme(base.elevatedButtonTheme),
-    floatingActionButtonTheme: _floatingActionButtonTheme(base.floatingActionButtonTheme),
+    floatingActionButtonTheme:
+        _floatingActionButtonTheme(base.floatingActionButtonTheme),
   );
 }
 
+AppBarTheme _myLightAppBarTheme(AppBarTheme base) => base.copyWith(
+      backgroundColor: primaryColor,
 
+      // This will be applied to the action icon buttons that locates on the right side
+      centerTitle: true,
+      elevation: 15,
+      titleTextStyle: const TextStyle(
+        color: Colors.white,
+        fontSize: 22,
+        fontFamily: 'OpenSans',
+
+      ),
+    );
 
 TextTheme _myLightTextTheme(TextTheme base) => base.copyWith(
-/*
-  headline1: base.headline1!.copyWith(
-
-      fontSize: 30,
-      fontWeight: FontWeight.w500,
-      color: Colors.white),
-*/
-
-  bodyText1: base.bodyText1!.copyWith(
-
-      fontSize: 16,
-      fontWeight: FontWeight.bold,
-      color: Colors.black),
-
-  bodyText2: base.bodyText2!.copyWith(
-
-      fontSize: 13,
-      fontWeight: FontWeight.normal,
-      color: Colors.black),
-);
+      headline1: base.headline1!.copyWith(
+          fontSize: 30,
+          fontFamily: 'Quicksand',
+          fontWeight: FontWeight.w500,
+          color: Colors.white),
+      bodyText1: base.bodyText1!.copyWith(
+          fontSize: 16,
+          fontFamily: 'Quicksand',
+          fontWeight: FontWeight.bold,
+          color: Colors.black),
+      bodyText2: base.bodyText2!.copyWith(
+          fontSize: 13,
+          fontFamily: 'Quicksand',
+          fontWeight: FontWeight.normal,
+          color: Colors.black),
+    );
 
 InputDecorationTheme _inputDecorationTheme(InputDecorationTheme base) =>
     const InputDecorationTheme(
@@ -70,8 +79,8 @@ ElevatedButtonThemeData _elevatedButtonTheme(ElevatedButtonThemeData base) =>
       ),
     );
 
-
-FloatingActionButtonThemeData _floatingActionButtonTheme(FloatingActionButtonThemeData base) =>
-   base.copyWith(
-     backgroundColor: primaryColor,
-   );
+FloatingActionButtonThemeData _floatingActionButtonTheme(
+        FloatingActionButtonThemeData base) =>
+    base.copyWith(
+      backgroundColor: primaryColor,
+    );
