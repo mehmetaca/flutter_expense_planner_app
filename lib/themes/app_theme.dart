@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 final ThemeData myLightTheme = _myLightTheme();
 
 const Color primaryColor = Color.fromARGB(255, 13, 30, 54);
+const String themeBodyFontName = 'Quicksand';
+const String themeTitleFontName = 'OpenSans';
 
 ThemeData _myLightTheme() {
   final ThemeData base = ThemeData.light();
@@ -27,34 +29,70 @@ ThemeData _myLightTheme() {
 
 AppBarTheme _myLightAppBarTheme(AppBarTheme base) => base.copyWith(
       backgroundColor: primaryColor,
-
-      // This will be applied to the action icon buttons that locates on the right side
       centerTitle: true,
       elevation: 15,
       titleTextStyle: const TextStyle(
         color: Colors.white,
         fontSize: 22,
-        fontFamily: 'OpenSans',
-
+        fontFamily: themeTitleFontName,
       ),
     );
 
 TextTheme _myLightTextTheme(TextTheme base) => base.copyWith(
-      headline1: base.headline1!.copyWith(
-          fontSize: 30,
-          fontFamily: 'Quicksand',
-          fontWeight: FontWeight.w500,
-          color: Colors.white),
-      bodyText1: base.bodyText1!.copyWith(
-          fontSize: 16,
-          fontFamily: 'Quicksand',
-          fontWeight: FontWeight.bold,
-          color: Colors.black),
-      bodyText2: base.bodyText2!.copyWith(
-          fontSize: 13,
-          fontFamily: 'Quicksand',
-          fontWeight: FontWeight.normal,
-          color: Colors.black),
+      bodySmall: base.bodySmall!.copyWith(
+        //fontWeight: FontWeight.bold,
+        fontFamily: themeBodyFontName,
+        // font size default 12
+        fontSize: 12,
+      ),
+      bodyMedium: base.bodyMedium!.copyWith(
+        //fontWeight: FontWeight.bold,
+        fontFamily: themeBodyFontName,
+        // font size default 14
+        fontSize: 14,
+      ),
+      bodyLarge: base.bodyLarge!.copyWith(
+        //fontWeight: FontWeight.bold,
+        fontFamily: themeBodyFontName,
+        // font size default 16
+        fontSize: 16,
+      ),
+      titleSmall: base.titleSmall!.copyWith(
+        //fontWeight: FontWeight.bold,
+        fontFamily: themeTitleFontName,
+        // font size default 14
+        fontSize: 14,
+      ),
+      titleMedium: base.titleMedium!.copyWith(
+        fontWeight: FontWeight.bold,
+        fontFamily: themeTitleFontName,
+        // font size default 16
+        fontSize: 16,
+      ),
+      titleLarge: base.titleLarge!.copyWith(
+        // fontWeight: FontWeight.bold,
+        fontFamily: themeTitleFontName,
+        // font size default 22
+        fontSize: 22,
+      ),
+      labelSmall: base.labelSmall!.copyWith(
+        //fontWeight: FontWeight.bold,
+        fontFamily: themeBodyFontName,
+        // font size default 11
+        //fontSize: 14,
+      ),
+      labelMedium: base.labelMedium!.copyWith(
+        //fontWeight: FontWeight.bold,
+        fontFamily: themeBodyFontName,
+        // font size default 12
+        //fontSize: 12,
+      ),
+      labelLarge: base.labelLarge!.copyWith(
+        //fontWeight: FontWeight.bold,
+        fontFamily: themeBodyFontName,
+        // font size default 14
+        //fontSize: 14,
+      ),
     );
 
 InputDecorationTheme _inputDecorationTheme(InputDecorationTheme base) =>

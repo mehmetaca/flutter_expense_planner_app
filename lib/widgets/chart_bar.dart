@@ -44,7 +44,8 @@ class ChartBar extends StatelessWidget {
         child: Row(
 
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.baseline,
+          textBaseline: TextBaseline.alphabetic,
           children: getDayBarWidgets(),
         ),
       ),

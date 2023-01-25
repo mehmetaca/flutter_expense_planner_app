@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../global/app_constant.dart';
+
 class Bar extends StatelessWidget {
   final String title;
   final String value;
@@ -21,13 +23,10 @@ class Bar extends StatelessWidget {
       children: [
         Container(
           width: 40.0,
-          child: FittedBox(
-              child: Text(
+          child: Text(
             value,
-            style: TextStyle(
-              fontSize: 12.0,
-            ),
-          )),
+            style: Theme.of(context).textTheme.bodyMedium,
+          ),
         ),
         Container(
           width: 40,
@@ -38,7 +37,7 @@ class Bar extends StatelessWidget {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  color: Color.fromRGBO(192, 198, 207, 1),
+                  color: barDefaultBackgroundColor,
                   borderRadius: BorderRadius.circular(5),
                 ),
               ),
@@ -50,9 +49,8 @@ class Bar extends StatelessWidget {
                   child: Center(
                       child: Text(
                     '% ${(fillPercantage * 100).toInt()}',
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.white,
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      color: Colors.white
                     ),
                   )),
                 ),
@@ -62,7 +60,9 @@ class Bar extends StatelessWidget {
         ),
         Text(
           title,
-          style: TextStyle(fontSize: 13.0),
+          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ],
     );
