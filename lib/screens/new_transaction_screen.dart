@@ -71,7 +71,7 @@ class _NewTransactionScreenState extends State<NewTransactionScreen> {
               onSubmitted: (_) => addNewTransaction(context),
           ),
           Container(
-            margin: EdgeInsets.only(top: 10),
+            margin: const EdgeInsets.only(top: 10),
               child: Text(
             'Date',
             style: Theme.of(context).textTheme.bodyText2,
@@ -91,7 +91,7 @@ class _NewTransactionScreenState extends State<NewTransactionScreen> {
             ],
           ),
 
-          Divider(height: 5, thickness: 1, color:Colors.grey),
+          const Divider(height: 5, thickness: 1, color:Colors.grey),
           ElevatedButton(
               child: const Text('Save'),
               onPressed: () {

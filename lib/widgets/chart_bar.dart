@@ -20,11 +20,13 @@ class ChartBar extends StatelessWidget {
       double expenseAmount = mapDay['expenseAmount']!;
       String expenseAmountValue = '\$${expenseAmount.toStringAsFixed(1)}';
       
-      Widget dayBarWidget = Bar(
-          title: mapDay['shortDayName'],
-          value: expenseAmountValue,
-          fillPercantage: mapDay['percantage'],
-          fillColor: mapDay['color']);
+      Widget dayBarWidget = Expanded(
+        child: Bar(
+            title: mapDay['shortDayName'],
+            value: expenseAmountValue,
+            fillPercantage: mapDay['percantage'],
+            fillColor: mapDay['color']),
+      );
 
       listWidget.add(dayBarWidget);
     }

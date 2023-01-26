@@ -23,9 +23,12 @@ class Bar extends StatelessWidget {
       children: [
         Container(
           width: 40.0,
-          child: Text(
-            value,
-            style: Theme.of(context).textTheme.bodyMedium,
+          height: 20,
+          child: FittedBox(
+            child: Text(
+              value,
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
           ),
         ),
         Container(

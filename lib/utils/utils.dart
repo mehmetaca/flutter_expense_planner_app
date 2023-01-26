@@ -1,8 +1,6 @@
 import 'dart:math';
 import 'package:intl/intl.dart';
 
-import '../models/transaction.dart';
-
 int getRandomId() {
   return Random().nextInt(1000000);
 }
