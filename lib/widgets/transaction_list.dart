@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_expense_planner_app/global/app_constant.dart';
+import './transaction_list_item.dart';
 
 import '../models/transaction.dart';
 import '../utils/utils.dart';
@@ -33,29 +34,10 @@ class TransactionList extends StatelessWidget {
             //shrinkWrap: false,
             itemCount: listTransaction.length,
             itemBuilder: (context, index) {
-              return Card(
-                elevation: 1,
-                margin: const EdgeInsets.all(10),
-                child: ListTile(
-                    leading: Text(
-                        '\$${listTransaction[index].amount.toStringAsFixed(1)}',
-                    style: Theme.of(context).textTheme.bodyLarge,),
-                    title: Text(
-                      listTransaction[index].title,
-                      style: Theme.of(context).textTheme.titleMedium,
-                    ),
-                    subtitle:
-                        Text(getFormattedDate(listTransaction[index].date)),
-                    trailing: IconButton(
-                      onPressed: () {
-                        funcDeleteTask(listTransaction[index].id);
-                      },
-                      icon: Icon(
-                        Icons.delete,
-                        color: Theme.of(context).colorScheme.error,
-                      ),
-                    )),
-              );
-            });
+              return TransactionListItem(transaction: listTransaction[index], funcDeleteTask: funcDeleteTask);
+            },
+          );
   }
 }
+
+
